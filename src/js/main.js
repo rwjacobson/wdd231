@@ -50,15 +50,11 @@ heroImg.setAttribute("src", data.images[0].url);
 document.getElementById("low-opacity-box").innerHTML = parkInfoTemplate(data);
 }
 
-setHeaderInfo(parkData)
-
 function setParkIntro(data) {
   document.querySelector(".intro > h1").innerHTML = data.fullName
 
-document.querySelector(".intro > p").innerHTML = data.description
+  document.querySelector(".intro > p").innerHTML = data.description
 }
-
-setParkIntro(parkData)
 
 function setParkInfo(data) {
 
@@ -77,7 +73,6 @@ function setParkInfo(data) {
   document.querySelector(".info").innerHTML = mediaCardFilled
 }
 
-setParkInfo(parkInfoLinks)
 
 function setParkFooter(data) {
   
@@ -96,7 +91,8 @@ function setParkFooter(data) {
     const mailing = getMailingAddress(info.addresses);
     const voice = getVoicePhone(info.contacts.phoneNumbers)
     
-    return `<section class="contact">
+    return `<img class="footer-background" src="images/topo_pattern.png" alt="footer background">
+    <section class="contact">
     <h3>Contact Info</h3>
     <h4>Mailing Address:</h4>
     <div><p>${mailing.line1}<p>
@@ -109,4 +105,11 @@ function setParkFooter(data) {
   document.getElementById("park-footer").innerHTML = footerTemplate(data);
 }
 
+// this is the stuff at the top of the screen
+setHeaderInfo(parkData)
+// the stuff at the start of the white background
+setParkIntro(parkData)
+//the picture sections
+setParkInfo(parkInfoLinks)
+// the footer part
 setParkFooter(parkData);
