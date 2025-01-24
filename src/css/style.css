@@ -305,9 +305,6 @@ svg {
 
   .info {
     display: flex;
-    gap: 10px;
+    gap: 20px;
   }
-  /* .media-card__img {
-    max-width: 415px;
-  } */
 }

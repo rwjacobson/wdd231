@@ -69,8 +69,9 @@ function setParkInfo(data) {
   }
 
   const mediaCardFilled = data.map(mediaCardTemplate)
+  const newMediaCard = mediaCardFilled.join("")
   
-  document.querySelector(".info").innerHTML = mediaCardFilled
+  document.querySelector(".info").innerHTML = newMediaCard
 }
 
 
