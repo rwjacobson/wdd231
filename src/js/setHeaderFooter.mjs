@@ -1,7 +1,6 @@
 import { parkInfoTemplate, footerTemplate } from "./templates.mjs";
-export function setHeaderFooter(data) {
 
-    // HEADER PART
+function setHeaderInfo(data) {
     // Update the link in the disclaimer area to read the name of the park and navigate to that park’s official site.
     const disclaimer = document.querySelector(".disclaimer > a");
     disclaimer.href = data.url;
@@ -16,9 +15,10 @@ export function setHeaderFooter(data) {
       
     // Use the template fuction above to set the rest of the park specific info in the header
     document.getElementById("low-opacity-box").innerHTML = parkInfoTemplate(data);
+}
         
 
-    //FOOTER PART
+function setFooter(data) {
     function getMailingAddress(addresses) {
         const mailing = addresses.find((address) => address.type === "Mailing");
         return mailing;
@@ -34,3 +34,8 @@ export function setHeaderFooter(data) {
       
     document.getElementById("park-footer").innerHTML = footerTemplate(mailing, voice);
 }
+
+export default function setHeaderFooter(parkData) {
+    setHeaderInfo(parkData);
+    setFooter(parkData);
+  }
